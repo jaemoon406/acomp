@@ -60,9 +60,11 @@ DATABASES = {
         'NAME': 'FiTecTest',
         'USER': os.environ.get('user'),
         'PASSWORD': os.environ.get('password'),
-        'HOST': os.environ.get('local'),
+        'HOST': os.environ.get('host'),
         'PORT': os.environ.get('port'),
-        'OPTIONS': {'charset': 'utf8mb4'}
+        'OPTIONS': {'charset': 'utf8mb4',
+                    'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+                    }
     }
 }
 
