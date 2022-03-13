@@ -13,7 +13,7 @@ class Category(models.Model):
 
 class Board(TimestampModel):
     user_name = models.CharField(max_length=30)
-    password = models.CharField(max_length=50)
+    password = models.CharField(max_length=225)
     content = models.CharField(max_length=1000)
     category = models.ForeignKey('board.Category', on_delete=models.CASCADE)
 
