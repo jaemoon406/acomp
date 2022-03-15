@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Board, Category
+from .models import Board, Category, Comment
 
 
 class BoardSerializer(serializers.ModelSerializer):
@@ -16,3 +16,16 @@ class BoardPostSerializer(serializers.ModelSerializer):
             many=True, queryset=Category.objects.all()
         )
         fields = '__all__'
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+
+class CommentReadOnlySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['id', 'created_at', 'updated_at', 'user_name', 'reply', 'board_id', 'parents_id']
+

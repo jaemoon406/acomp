@@ -6,6 +6,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
+DEBUG = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,6 +55,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'conf.wsgi.application'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+ALGORITHM = os.environ.get('ALGORITHM')
+
 
 DATABASES = {
     'default': {
@@ -120,3 +126,5 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+APPEND_SLASH = False
